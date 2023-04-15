@@ -4,13 +4,18 @@ import "core:fmt"
 
 main :: proc() {
 
-  index, success := binarySearch(0, 1);
-  fmt.printf("Index: %v, Success: %v\n", index, success)
+  // Filled array to test
+  arry := [1028]int{}
+  for i := 0; i < len(arry); i += 1 {
+    arry[i] = i
+  }
 
+  index, success := binarySearch(arry, 2)
+  fmt.printf("Index: %v, Success: %v\n", index, success)
 }
 
-binarySearch :: proc(arry: int, number: int) -> (index: int, success: int) {
-  index = arry
+binarySearch :: proc(arry: [1028]int, number: int) -> (index, success: int) {
+  index = arry[number]
   success = number
   return index, success
 }
